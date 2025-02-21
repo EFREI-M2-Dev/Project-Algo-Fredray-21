@@ -66,14 +66,14 @@ Un example est disponible dans le `rapport_evaluation_frederic_dabadie.pdf`
 
 ```sh
 curl -X POST http://localhost:8000/analyze \
-     -H "Content-Type: application/json" \
-     -d '{
-           "tweets": [
-    "Il est le seul à s'opposer aux élites corrompues",
-    "Il ose affronter le politiquement correct c'est rare aujourd'hui",
+-H "Content-Type: application/json" \
+-d '{
+  "tweets": [
+    "Il est le seul à s\'opposer aux élites corrompues",
+    "Il ose affronter le politiquement correct c\'est rare aujourd\'hui",
     "Son dernier discours était rempli de contradictions..."
-           ]
-         }'
+  ]
+}'
 ```
 
 ### **Exemple de réponse JSON**
