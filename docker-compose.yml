@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:9.2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tweets_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/tweets.sql:/docker-entrypoint-initdb.d/tweets.sql
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: tweets_db
+
+volumes:
+  mysql_data:

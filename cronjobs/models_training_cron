@@ -1,0 +1,1 @@
+0 3 * * 0 cd /app && /usr/local/bin/python /app/models_training.py >> /app/cron.log 2>&1 && pkill -HUP gunicorn
